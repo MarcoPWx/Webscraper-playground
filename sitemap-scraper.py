@@ -109,7 +109,7 @@ def scrape_sitemap(sitemap_url, limit=1):
 
 # Main execution point
 if __name__ == "__main__":
-    sitemap_url = "https://www.retsinformation.dk/sitemap.xml"
+    sitemap_url = ""
     
     # Limit the test to 1 page for now
     scrape_sitemap(sitemap_url, limit=1)

@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:alpine
+  
+  scraper:
+    build: .
+    command: celery -A WebScraper worker --loglevel=info
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=/app
+    depends_on:
+      - redis
+  
+  flower:
+    build: .
+    command: celery -A WebScraper flower
+    ports:
+      - "5555:5555"
+    environment:
+      - PYTHONPATH=/app
+    depends_on:
+      - redis
+      - scraper

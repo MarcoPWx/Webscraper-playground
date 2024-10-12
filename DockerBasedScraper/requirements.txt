@@ -1,0 +1,9 @@
+selenium
+webdriver-manager
+celery==5.2.7
+redis
+beautifulsoup4
+requests==2.26.0
+xmltodict
+tenacity
+flower==1.2.0
